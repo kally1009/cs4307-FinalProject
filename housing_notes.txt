@@ -1,0 +1,5 @@
+Manhattan: $1,290,000
+Brooklyn: $969,000
+Queens: $699,000
+Staten Island: $579,908
+Bronx: $550,000
