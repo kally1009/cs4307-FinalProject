@@ -16,8 +16,7 @@ location text
 
 CREATE TABLE JOBS(
 job_title text PRIMARY KEY,
-base_salary int,
-
+base_salary int
 );
 
 
@@ -25,5 +24,5 @@ CREATE TABLE HOUSING(
 burrow text,
 avg_rent int,
 avg_buy int,
-bedroooms int,
+bedroooms int
 );
