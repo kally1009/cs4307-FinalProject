@@ -3,9 +3,11 @@ id int PRIMARY KEY,
 f_name text,
 last_name text,
 status text,
+job_title text,
 real_salary int,
 hours int,
-job_title text
+agency_id int
+
 );
 
 CREATE TABLE AGENCY(
