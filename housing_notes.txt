@@ -1,5 +1,7 @@
-Manhattan: $1,290,000
-Brooklyn: $969,000
-Queens: $699,000
-Staten Island: $579,908
-Bronx: $550,000
+Manhattan: $1,290,000/$3785
+Brooklyn: $969,000 /$3350
+Queens: $699,000/$2242
+Staten Island: $579,908/$1500
+Bronx: $550,000/$1800
+
+source rent: Zumper, source listing price Realtor.com (via yourlawyer.com)
