@@ -13,8 +13,10 @@ bedroooms integer
 
 CREATE TABLE JOBS(
 job_title text PRIMARY KEY,
-CONSTRAINT agency_id FOREIGN KEY (id) REFERENCES AGENCIES(id),
-base_salary integer
+agency_id integer,
+base_salary integer,
+
+FOREIGN KEY (agency_id) REFERENCES AGENCIES(id)
 );
 
 CREATE TABLE PEOPLE(
@@ -22,10 +24,13 @@ id integer PRIMARY KEY,
 last_name text,
 f_name text,
 status text,
-CONSTRAINT title FOREIGN KEY (job_title) references JOBS(job_title),
+title text,
 real_salary integer,
 hours integer,
-CONSTRAINT agency_id FOREIGN KEY (id) REFERENCES AGENCIES(id)
+agency_id integer,
+
+FOREIGN KEY (title) references JOBS(job_title),
+FOREIGN KEY (agency_id) REFERENCES AGENCIES(id) ON UPDATE CASCADE
 );
 
 
