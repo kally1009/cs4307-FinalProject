@@ -2,8 +2,8 @@ import sqlite3
 from sqlite3 import Error
 import sys
 
-
-corruption = 'SELECT avg(p.real_salary)-h.avg_rent as avg_salary_after_rent, a.borough,  FROM PEOPLE p JOIN AGENCIES a on p.agency_id=a.id JOIN HOUSING h ON a.borough=h.borough'
+# Find ppl with the highest salary per hour worked
+ezMoney = 'SELECT f_name, last_name, job_title, a.agency_name, (p.real_salary/p.hours) as salary_per_hour, p.real_salary as yearly_salary, p.hours FROM PEOPLE p JOIN JOBS j on p.job_title=j.job_title JOIN AGENCIES a on p.agency_id=a.id GROUP BY p.id ORDER BY salary_per_hour desc LIMIT 40'
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     if conn is not None:
         try:
             c = conn.cursor()
-            c.execute(corruption)
+            c.execute(ezMoney)
         except Error as e:
             print(e)
     else:
