@@ -1,4 +1,5 @@
-mport pandas as pd
+import pandas as pd
+
 
 class data:
 
@@ -16,33 +17,33 @@ class data:
         self.base_salary = df['Base Salary']
 
     def people_record(self):
-        people_stack = pd.concat([self.Lastname, self.Firstname, self.status, self.salary, self.hours, self.title], axis=1)
+        people_stack = pd.concat(
+            [self.Lastname, self.Firstname, self.status, self.salary, self.hours, self.title], axis=1)
         return people_stack
 
     def agency_record(self):
         agency_stack = pd.concat([agency, location], axis=1)
         return agency_stack
 
-
     def jobs_record(self):
         jobs_stack = pd.concat([title, base_salary], axis=1)
-        return agency_stack 
-    
+        return agency_stack
+
     def getLastname(self):
         return self.Lastname
 
     def getFirstname(self):
         return self.Firstname
-    
+
     def getStatus(self):
         return self.status
-    
+
     def getSalary(self):
         return self.salary
-    
+
     def getHours(self):
         return self.hours
-    
+
     def getJobTitle(self):
         return self.title
 
@@ -54,6 +55,7 @@ class data:
 
     def getLocation(self):
         return self.location
+
 
 '''
 manhattan_housing = 1290000

@@ -3,10 +3,11 @@ import sys
 
 (agency_name, borough) = sys.argv[1:3]
 
-con.sqlite3.connect('nyc.db')
+con = sqlite3.connect('nyc.db')
 cur = con.cursor()
 
-cur.execute("INSERT INTO AGENCIES(agency_name, borough) VALUES(?,?)", [agency_name, borough])
+cur.execute("INSERT INTO AGENCIES(agency_name, borough) VALUES(?,?)", [
+            agency_name, borough])
 
 con.commit()
 cur.close()

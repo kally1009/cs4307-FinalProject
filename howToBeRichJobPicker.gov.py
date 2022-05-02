@@ -8,5 +8,3 @@ cur = con.cursor()
 cur.execute(positionsBySalary)
 con.commit()
 cur.close()
-
-'
