@@ -1,7 +1,8 @@
+import os
 import pandas as pd
 
 
-class data:
+class Data:
 
     def __init__(self, input_file):
         x = pd.read_csv(input_file, low_memory=False)
