@@ -22,12 +22,12 @@ class data:
         return people_stack
 
     def agency_record(self):
-        agency_stack = pd.concat([agency, location], axis=1)
+        agency_stack = pd.concat([self.agency, self.location], axis=1)
         return agency_stack
 
     def jobs_record(self):
-        jobs_stack = pd.concat([title, base_salary], axis=1)
-        return agency_stack
+        jobs_stack = pd.concat([self.title, self.base_salary], axis=1)
+        return jobs_stack
 
     def getLastname(self):
         return self.Lastname
