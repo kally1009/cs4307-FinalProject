@@ -1,5 +1,4 @@
 import os
-
 import pandas as pd
 
 
@@ -83,7 +82,7 @@ def main():
     location_df = data.getLocation()
     lst = []
     for i in range(1000):
-        #make_people_table(lastname_df[i], firstname_df[i], status_df[i], title_df[i], salary_df[i], hours_df[i], agency_df[i])
+        #make_people_table(lastname_df[i], firstname_df[i], status_df[i],title_df[i], salary_df[i], hours_df[i], agency_df[i])
         make_agency_table(agency_df[i], location_df[i])
     make_housing()
 
