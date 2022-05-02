@@ -3,11 +3,14 @@ import sys
 
 (job_title, base_salary, agency_name) = sys.argv[1:3]
 
-con.sqlite3.connect('nyc.db')
+con = sqlite3.connect('nyc.db')
 cur = con.cursor()
-#load into interactive shell and lookup sqlite3 python and see the options there are. 
-agency_id = cur.query("SELECT id FROM AGENCIES WHERE agency_name = ? ", [agency_name])#might be an iterator or tuple also check if it's query, etc. 
-cur.execute("INSERT INTO JOBS(job_title, agency_id, base_salary) VALUES(?,?,?)", [job_title, agency_id, base_salary ])
+# load into interactive shell and lookup sqlite3 python and see the options there are.
+# might be an iterator or tuple also check if it's query, etc.
+agency_id = cur.execute(
+    "SELECT id FROM AGENCIES WHERE agency_name = ? ", [agency_name])
+cur.execute("INSERT INTO JOBS(job_title, agency_id, base_salary) VALUES(?,?,?)", [
+            job_title, agency_id, base_salary])
 
 con.commit()
 cur.close()
