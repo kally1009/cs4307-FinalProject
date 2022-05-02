@@ -52,6 +52,9 @@ class data:
     def getBaseSalary(self):
         return self.base_salary
 
+    def getLocation(self):
+        return self.location
+
 '''
 manhattan_housing = 1290000
 manhattan_rent = 3785
