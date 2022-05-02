@@ -2,6 +2,8 @@ CREATE TABLE AGENCIES(
 id integer PRIMARY KEY,
 agency_name text,
 borough text
+
+CONSTRAINT agency_constraint UNIQUE (agency_name, borough)
 );
 
 CREATE TABLE HOUSING(
