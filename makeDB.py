@@ -107,7 +107,7 @@ def main():
         base_salary = base_salary_df[i]
 
         make_agency_table(agency, location)
-        make_jobs(title, agency, salary, location)
+        make_jobs(title, agency, base_salary, location)
         make_people_table(firstname, lastname, status, title,
                           salary, hours, agency, location)
 

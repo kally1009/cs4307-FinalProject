@@ -3,7 +3,7 @@ from sqlite3 import Error
 import sys
 
 
-corruption = 'SELECT id, f_name, last_name, job_title, (p.real_salary-j.base_salary) as salary_over_base FROM PEOPLE p JOIN JOBS j on p.job_title=j.job_title GROUP BY p.id ORDER BY (p.real_salary-j.base_salary) desc LIMIT count(p.id)/10'
+corruption = 'SELECT id, f_name, last_name, job_title, (j.base_salary-p.real_salary) as salary_over_base FROM PEOPLE p JOIN JOBS j on p.title=j.job_title ORDER BY (p.real_salary-j.base_salary) desc'
 
 
 def main():
@@ -13,6 +13,8 @@ def main():
         try:
             c = conn.cursor()
             c.execute(corruption)
+            result = c.fetchall()
+            print("Most Corrupted", result)
         except Error as e:
             print(e)
     else:

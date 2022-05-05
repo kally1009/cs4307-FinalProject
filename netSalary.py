@@ -3,7 +3,7 @@ from sqlite3 import Error
 import sys
 
 
-net_salary= 'SELECT a.agency_name, p.title,  a.borough, avg(p.real_salary)-h.avg_rent as avg_salary_after_rent  FROM PEOPLE p JOIN AGENCIES a on p.agency_id=a.id JOIN HOUSING h ON a.borough=h.borough'
+net_salary= 'SELECT a.agency_name, p.title, a.borough, avg(p.real_salary)-h.avg_rent as avg_salary_after_rent FROM PEOPLE p JOIN AGENCIES a on p.agency_id=a.id JOIN HOUSING h ON a.borough=h.borough'
 
 
 def main():
@@ -13,6 +13,8 @@ def main():
         try:
             c = conn.cursor()
             c.execute(net_salary)
+            result = c.fetchall()
+            print("Net Salary", result)
         except Error as e:
             print(e)
     else:
