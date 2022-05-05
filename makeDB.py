@@ -58,8 +58,8 @@ class Data:
         return self.location
 
 
-def make_people_table(firstname, lastname, status, job_title, salary, hours, agency):
-    os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency}')
+#def make_people_table(firstname, lastname, status, job_title, salary, hours, agency):
+    #os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency}')
 
 def make_agency_table(agency_name, agency_borough):
     os.system(f'python3 agency.py {agency_name} {agency_borough}')
@@ -67,6 +67,9 @@ def make_agency_table(agency_name, agency_borough):
 
 def make_housing():
     os.system(f'python3 housing.py')
+
+def make_jobs(job_title, agency_name, base_salary):
+    os.system(f'python3 jobs.py {job_title} {agency_name} {base_salary}')
 
 
 def main():
@@ -86,6 +89,7 @@ def main():
     for i in range(100):
         #make_people_table(lastname_df[i], firstname_df[i], status_df[i],title_df[i], salary_df[i], hours_df[i], agency_df[i])
         make_agency_table(agency_df[i], location_df[i])
+        make_jobs(title_df[i], agency_df[i], salary_df[i])
     make_housing()
 
 

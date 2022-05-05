@@ -2,7 +2,7 @@ import sqlite3
 import sys
 
 (job_title, base_salary, agency_name) = sys.argv[1:3]
-print('\n job title=', job_title, "base_salary=", base_salary, "agency_name=", agency_name')
+print('\n job title=', job_title, "base_salary=", base_salary, "agency_name=", agency_name)
 
 con = sqlite3.connect('nyc.db')
 cur = con.cursor()
