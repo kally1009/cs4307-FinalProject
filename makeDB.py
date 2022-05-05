@@ -78,7 +78,7 @@ def make_jobs(job_title, agency_name, base_salary, location):
 
 def main():
 
-    os.system('rm nyc.db')  # Remove at end
+    os.system('clear && rm nyc.db')  # Remove at end
     os.system('sqlite3 nyc.db < schema.sql')
     data = Data("Citywide_Payroll_Data__Fiscal_Year_.csv")
     lastname_df = data.getLastname()
@@ -98,18 +98,16 @@ def main():
         lastname = '"'+lastname_df[i]+'"'
         firstname = '"'+firstname_df[i]+'"'
         status = status_df[i]
-        job_title = title_df[i]
-        title = '"' + job_title + '"'
+        title = '"'+title_df[i]+'"'
         salary = salary_df[i]
         hours = hours_df[i]
-        agency = agency_df[i]
-        agency_string = '"' + agency_df[i] + '"'
+        agency = '"'+agency_df[i]+'"'
         location = location_df[i]
         location_string = '"'+location_df[i]+'"'
         base_salary = base_salary_df[i]
 
-        make_agency_table(agency_string, location_string)
-        #make_jobs(title_df[i], agency_df[i], base_salary_df[i], location_df[i])
+        make_agency_table(agency, location)
+        make_jobs(title, agency, salary, location)
         #make_people_table(firstname, lastname, status, title, salary, hours, agency, location)
 
 
