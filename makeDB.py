@@ -78,7 +78,7 @@ def make_jobs(job_title, agency_name, base_salary, location):
 
 def main():
 
-    os.system('clear && rm nyc.db')  # Remove at end
+    os.system('rm nyc.db')  # Remove at end
     os.system('sqlite3 nyc.db < schema.sql')
     data = Data("Citywide_Payroll_Data__Fiscal_Year_.csv")
     lastname_df = data.getLastname()
@@ -108,7 +108,8 @@ def main():
 
         make_agency_table(agency, location)
         make_jobs(title, agency, salary, location)
-        #make_people_table(firstname, lastname, status, title, salary, hours, agency, location)
+        make_people_table(firstname, lastname, status, title,
+                          salary, hours, agency, location)
 
 
 if __name__ == '__main__':
