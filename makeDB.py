@@ -2,7 +2,6 @@ import os
 import pandas as pd
 
 
-
 class Data:
 
     def __init__(self, input_file):
@@ -60,7 +59,9 @@ class Data:
 
 
 def make_people_table(firstname, lastname, status, job_title, salary, hours, agency_name, location):
-        os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency_name} {location}')
+    os.system(
+        f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency_name} {location}')
+
 
 def make_agency_table(agency_name, agency_borough):
     os.system(f'python3 agency.py {agency_name} {agency_borough}')
@@ -92,32 +93,24 @@ def main():
     lst = []
 
     make_housing()
+
     for i in range(5):
-        Lastname = '"'+lastname_df[i]+'"'
-        print(Lastname)
-        Firstname = '"'+firstname_df[i]+'"'
-        print(Firstname)
-        Status= status_df[i]
-        print(Status)
-        job_title =  title_df[i]
-        title = '"'+job_title+'"'
-        print(title)
+        lastname = '"'+lastname_df[i]+'"'
+        firstname = '"'+firstname_df[i]+'"'
+        status = status_df[i]
+        job_title = title_df[i]
+        title = '"' + job_title + '"'
         salary = salary_df[i]
-        print(salary)
         hours = hours_df[i]
-        print(hours)
-        agency_name = agency_df[i]
-        agency = '"'+agency_name+'"'
-        print(agency)
+        agency = agency_df[i]
+        agency_string = '"' + agency_df[i] + '"'
         location = location_df[i]
-        print(location)
+        location_string = '"'+location_df[i]+'"'
         base_salary = base_salary_df[i]
-        
-        make_agency_table(agency, location)
-        make_jobs(title_df[i], agency_df[i], base_salary_df[i], location_df[i])
-        make_people_table(Firstname, Lastname, Status, title, salary, hours, agency, location)
-        
-    
+
+        make_agency_table(agency_string, location_string)
+        #make_jobs(title_df[i], agency_df[i], base_salary_df[i], location_df[i])
+        #make_people_table(firstname, lastname, status, title, salary, hours, agency, location)
 
 
 if __name__ == '__main__':
