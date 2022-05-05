@@ -91,7 +91,7 @@ def main():
     base_salary_df = data.getBaseSalary()
     lst = []
 
-    
+    make_housing()
     for i in range(5):
         Lastname = '"'+lastname_df[i]+'"'
         print(Lastname)
@@ -116,7 +116,7 @@ def main():
         make_agency_table(agency, location)
         #make_people_table(Firstname, Lastname, Status, title, salary, hours, agency, location)
         make_jobs(title_df[i], agency_df[i], base_salary_df[i], location_df[i])
-    make_housing()
+    
 
 
 if __name__ == '__main__':
