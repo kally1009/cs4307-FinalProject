@@ -58,8 +58,8 @@ class Data:
         return self.location
 
 
-# def make_people_table(firstname, lastname, status, job_title, salary, hours, agency):
- #   os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency}')
+def make_people_table(firstname, lastname, status, job_title, salary, hours, agency):
+    os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency}')
 
 def make_agency_table(agency_name, agency_borough):
     os.system(f'python3 agency.py {agency_name} {agency_borough}')

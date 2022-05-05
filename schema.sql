@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS AGENCIES(
 id integer PRIMARY KEY,
 agency_name text,
-borough text
+borough text,
 
 UNIQUE (agency_name, borough)
 );
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS HOUSING(
 borough text,
 avg_rent integer,
 avg_buy integer,
-bedroooms integer
+bedrooms integer
 );
 
 CREATE TABLE IF NOT EXISTS JOBS(

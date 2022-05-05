@@ -20,7 +20,10 @@ combo.append(title)
 con = sqlite3.connect('nyc.db')
 cur = con.cursor()
 
-cur.execute("INSERT INTO AGENCIES (agency_name, borough) VALUES(?,?)", combo)
+cur.execute("SELECT agency_name, borough FROM AGENCIES WHERE agency_name=? AND borough=?", combo)
+result = cur.fetchone()
+if result is None:
+    cur.execute("INSERT INTO AGENCIES (agency_name, borough) VALUES(?,?)", combo)
 
 con.commit()
 cur.close()
