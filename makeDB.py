@@ -2,10 +2,11 @@ import os
 import pandas as pd
 
 
+
 class Data:
 
     def __init__(self, input_file):
-        x = pd.read_csv(input_file, low_memory=False)
+        x = pd.read_csv(input_file)
         df = pd.DataFrame(x)
         self.Lastname = df['Last Name']
         self.Firstname = df['First Name']
@@ -58,8 +59,8 @@ class Data:
         return self.location
 
 
-def make_people_table(firstname, lastname, status, job_title, salary, hours, agency):
-    os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency}')
+def make_people_table(firstname, lastname, status, job_title, salary, hours, agency_name, location):
+        os.system(f'python3 people.py {firstname} {lastname} {status} {job_title} {salary} {hours} {agency_name} {location}')
 
 def make_agency_table(agency_name, agency_borough):
     os.system(f'python3 agency.py {agency_name} {agency_borough}')
@@ -87,10 +88,32 @@ def main():
     location_df = data.getLocation()
     base_salary_df = data.getBaseSalary()
     lst = []
+
+    
     for i in range(100):
-        make_people_table(lastname_df[i], firstname_df[i], status_df[i],title_df[i], salary_df[i], hours_df[i], agency_df[i])
-        make_agency_table(agency_df[i], location_df[i])
-        make_jobs(title_df[i], agency_df[i], base_salary_df[i])
+        Lastname = '"'+lastname_df[i]+'"'
+        print(Lastname)
+        Firstname = '"'+firstname_df[i]+'"'
+        print(Firstname)
+        Status= status_df[i]
+        print(Status)
+        job_title =  title_df[i]
+        title = '"'+job_title+'"'
+        print(title)
+        salary = salary_df[i]
+        print(salary)
+        hours = hours_df[i]
+        print(hours)
+        agency_name = agency_df[i]
+        agency = '"'+agency_name+'"'
+        print(agency)
+        location = location_df[i]
+        print(location)
+        base_salary = base_salary_df[i]
+        
+        make_agency_table(agency, location)
+        make_people_table(Firstname, Lastname, Status, title, salary, hours, agency, location)
+        #make_jobs(title_df[i], agency_df[i], base_salary_df[i])
     make_housing()
 
 
