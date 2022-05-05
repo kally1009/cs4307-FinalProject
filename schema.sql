@@ -14,11 +14,12 @@ bedrooms integer
 );
 
 CREATE TABLE IF NOT EXISTS JOBS(
-job_title text PRIMARY KEY,
+job_title text,
 agency_id integer,
 base_salary integer,
 
-FOREIGN KEY (agency_id) REFERENCES AGENCIES(id)
+FOREIGN KEY (agency_id) REFERENCES AGENCIES(id),
+PRIMARY KEY (job_title, agency_id)
 );
 
 CREATE TABLE IF NOT EXISTS PEOPLE(

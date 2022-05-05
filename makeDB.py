@@ -69,13 +69,15 @@ def make_agency_table(agency_name, agency_borough):
 def make_housing():
     os.system(f'python3 housing.py')
 
-def make_jobs(job_title, agency_name, base_salary):
-    os.system(f'python3 jobs.py {job_title} {agency_name} {base_salary}')
+
+def make_jobs(job_title, agency_name, base_salary, location):
+    os.system(
+        f'python3 jobs.py {job_title} {agency_name} {base_salary} {location}')
 
 
 def main():
-    
-    os.system('rm nyc.db') #Remove at end
+
+    os.system('rm nyc.db')  # Remove at end
     os.system('sqlite3 nyc.db < schema.sql')
     data = Data("Citywide_Payroll_Data__Fiscal_Year_.csv")
     lastname_df = data.getLastname()
@@ -89,6 +91,7 @@ def main():
     base_salary_df = data.getBaseSalary()
     lst = []
 
+<<<<<<< HEAD
     
     for i in range(100):
         Lastname = '"'+lastname_df[i]+'"'
@@ -115,6 +118,13 @@ def main():
         make_people_table(Firstname, Lastname, Status, title, salary, hours, agency, location)
         #make_jobs(title_df[i], agency_df[i], base_salary_df[i])
     make_housing()
+=======
+    make_housing()
+    for i in range(100):
+        #make_people_table(lastname_df[i], firstname_df[i], status_df[i],title_df[i], salary_df[i], hours_df[i], agency_df[i])
+        make_agency_table(agency_df[i], location_df[i])
+        make_jobs(title_df[i], agency_df[i], base_salary_df[i], location_df[i])
+>>>>>>> 2e7b77186ad06a4c1920fdb7517414e2c7949958
 
 
 if __name__ == '__main__':
