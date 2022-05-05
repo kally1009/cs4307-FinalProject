@@ -25,10 +25,10 @@ CREATE TABLE IF NOT EXISTS PEOPLE(
 id integer PRIMARY KEY,
 last_name text,
 f_name text,
-status text,
+a_status text,
 title text,
 real_salary integer,
-hours integer,
+hours_w integer,
 agency_id integer,
 
 FOREIGN KEY (title) references JOBS(job_title),
